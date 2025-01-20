@@ -1,0 +1,22 @@
+{
+  "name": "hello-embeddings",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Md. Rezve Hasan"
+  },
+  "scripts": {
+    "start": "cross-env NODE_NO_WARNINGS=1 nodemon ./src/app.ts"
+  },
+  "dependencies": {
+    "chromadb": "^1.10.3",
+    "ollama": "^0.5.12"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.3"
+  }
+}

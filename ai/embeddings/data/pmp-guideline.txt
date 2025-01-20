@@ -1,0 +1,415 @@
+Project Management Professional (PMP)(r) Examination Content Outline - January 2021
+
+Project Management Institute
+
+Project Management Professional (PMP)(r) Examination Content Outline
+
+January 2021 Exam Update
+
+Published by:	Project Management Institute, Inc.
+14 Campus Boulevard
+Newtown Square, Pennsylvania 19073-3299 USA.
+
+(c)2020 Project Management Institute, Inc. All rights reserved.
+
+"PMI," the PMI logo, "PMP," the PMP logo, "PMBOK," "PgMP," "Project Management Journal," "PM Network," and the PMI Today logo are registered marks of Project Management Institute, Inc. The Quarter Globe Design is a trademark of the Project Management Institute, Inc. For a comprehensive list of PMI marks, contact the PMI Legal Department.
+
+TABLE OF CONTENTS
+Introduction	1
+Exam Content Outline	2
+Domains, Tasks, and Enablers	3
+Domain I: People	4
+Domain II: Process	7
+Domain III: Business Environment	10
+PMP Application & Payment	11
+PMP Eligibility Requirements	11
+How to Record Your Experience & Education	12
+PMP Certification Fees	14
+PMP Examination Information	15
+
+INTRODUCTION
+The Project Management Institute (PMI) offers a professional certification for project managers, known as the Project Management Professional (PMP)(r). PMI's examination development processes stand apart from other certification programs. PMI aligns its process with certification industry best practices, such as those found in the Standards for Educational and Psychological Testing. The PMP(r) certification is also accredited against the internationally recognized ISO 9001 and ISO/ANSI 17024 standards.1
+A key component of the ISO/ANSI 17024 standard is that organizations wishing to offer valid, reliable and fair credentialing examinations must use a criterion referenced approach as the basis for exam creation such as a role delineation study (RDS) or job task analysis (JTA). PMI conducted a global practice analysis (GPA), which included both extensive market research and a JTA.
+The GPA produced a number of trends in the profession previously unaddressed in the PMP exam. These trends were used as inputs into the JTA and ensure the validity and relevance of the PMP examination. Validation assures that each examination measures the most critical and frequently performed elements of the project management profession in terms of real settings.
+The PMP examination is a vital part of the earning this professional certification thus it is imperative that the exam accurately reflect the practices of project managers. All the questions on the examination have been written and extensively reviewed by subject matter experts who hold a valid PMP and tracked to at least two references. These questions are mapped to the PMP Examination Content Outline to ensure that an appropriate number of questions are in place for a valid examination.
+PMI retained Alpine Testing Solutions to develop the global PMP Examination Content Outline. Alpine Testing Solutions provides psychometric, test development, and credential management solutions to credentialing and educational programs.
+Finally, there are noticeable differences between this updated PMP Examination Content Outline and A Guide to the Project Management Body of Knowledge (PMBOK(r) Guide). While there are some commonalities, it is important to note that the volunteer taskforce involved in the GPA study described previously were not bound by the PMBOK(r) Guide. The taskforce members were charged with outlining critical job tasks of individuals who lead and direct projects based on their experience and pertinent resources.
+
+1 Published jointly by the American Education Research Association, National Council on Measurement in Education, and American Psychological Association. The PMP certification is also accredited by the American National Standards Institute (ANSI) against the internationally recognized ISO/IEC 17024 standard: Conformity Assessment-General Requirements for Bodies Operating Certification of Persons.
+
+EXAM CONTENT OUTLINE
+
+The following table identifies the proportion of questions from each domain that will appear on the examination.
+
+Domain
+Percentage of Items on Test
+I.	People
+42%
+II.	Process
+50%
+III.	Business Environment
+8%
+Total
+100%
+
+Important note: The research conducted through the JTA validated that today's project management practitioners work in a variety of project environments and utilize different project approaches. Accordingly, the PMP certification will be reflective of this and will incorporate approaches across the value delivery spectrum. About half of the examination will represent predictive project management approaches and the other half will represent agile or hybrid approaches. Predictive, agile, and hybrid approaches will be found throughout the three domain areas listed above and are not isolated to any particular domain or task. The exact number of items for each question type and approach may vary by form. Our scoring model is periodically reviewed by scoring experts to ensure valid assessment of knowledge and skills.
+
+DOMAINS, TASKS, AND ENABLERS
+
+In this document you will find an updated structure for the PMP Examination Content Outline. Based on feedback from customers and stakeholders, we have worked on simplifying the format so that the PMP Examination Content Outline is easier to understand and interpret.
+On the following pages you will find the domains, tasks, and enablers as defined by the JTA.
+* Domain: Defined as the high-level knowledge area that is essential to the practice of project management.
+* Tasks: The underlying responsibilities of the project manager within each domain area.
+* Enablers: Illustrative examples of the work associated with the task. Please note that enablers are not meant to be an exhaustive list but rather offer a few examples to help demonstrate what the task encompasses.
+
+Each PMP examination will include all tasks for a domain, and PMI will adhere to the percentage of coverage at the domain level as outlined on the previous page.
+
+Following is an example of the new task structure:
+
+
+
+Task statement
+
+
+Enablers
+
+Manage conflict
+
+* Interpret the source and stage of the conflict
+* Analyze the context for the conflict
+* Evaluate/recommend/reconcile the appropriate conflict resolution solution
+
+Domain I
+People-42%
+Task 1
+Manage conflict
+* Interpret the source and stage of the conflict
+* Analyze the context for the conflict
+* Evaluate/recommend/reconcile the appropriate conflict resolution solution
+Task 2
+Lead a team
+* Set a clear vision and mission
+* Support diversity and inclusion (e.g., behavior types, thought process)
+* Value servant leadership (e.g., relate the tenets of servant leadership to the team)
+* Determine an appropriate leadership style (e.g., directive, collaborative)
+* Inspire, motivate, and influence team members/stakeholders (e.g., team contract, social contract, reward system)
+* Analyze team members and stakeholders' influence
+* Distinguish various options to lead various team members and stakeholders
+Task 3
+Support team performance
+* Appraise team member performance against key performance indicators
+* Support and recognize team member growth and development
+* Determine appropriate feedback approach
+* Verify performance improvements
+Task 4
+Empower team members and stakeholders
+* Organize around team strengths
+* Support team task accountability
+* Evaluate demonstration of task accountability
+* Determine and bestow level(s) of decision-making authority
+Task 5
+Ensure team members/stakeholders are adequately trained
+* Determine required competencies and elements of training
+* Determine training options based on training needs
+* Allocate resources for training
+* Measure training outcomes
+Task 6
+Build a team
+* Appraise stakeholder skills
+* Deduce project resource requirements
+* Continuously assess and refresh team skills to meet project needs
+* Maintain team and knowledge transfer
+
+
+Task 7
+Address and remove impediments, obstacles, and blockers for the team
+* Determine critical impediments, obstacles, and blockers for the team
+* Prioritize critical impediments, obstacles, and blockers for the team
+* Use network to implement solutions to remove impediments, obstacles, and blockers for the team
+* Re-assess continually to ensure impediments, obstacles, and blockers for the team are being addressed
+Task 8
+Negotiate project agreements
+* Analyze the bounds of the negotiations for agreement
+* Assess priorities and determine ultimate objective(s)
+* Verify objective(s) of the project agreement is met
+* Participate in agreement negotiations
+* Determine a negotiation strategy
+Task 9
+Collaborate with stakeholders
+* Evaluate engagement needs for stakeholders
+* Optimize alignment between stakeholder needs, expectations, and project objectives
+* Build trust and influence stakeholders to accomplish project objectives
+Task 10
+Build shared understanding
+* Break down situation to identify the root cause of a misunderstanding
+* Survey all necessary parties to reach consensus
+* Support outcome of parties' agreement
+* Investigate potential misunderstandings
+Task 11
+Engage and support virtual teams
+* Examine virtual team member needs (e.g., environment, geography, culture, global, etc.)
+* Investigate alternatives (e.g., communication tools, colocation) for virtual team member engagement
+* Implement options for virtual team member engagement
+* Continually evaluate effectiveness of virtual team member engagement
+Task 12
+Define team ground rules
+* Communicate organizational principles with team and external stakeholders
+* Establish an environment that fosters adherence to the ground rules
+* Manage and rectify ground rule violations
+
+
+Task 13
+Mentor relevant stakeholders
+* Allocate the time to mentoring
+* Recognize and act on mentoring opportunities
+Task 14
+Promote team performance through the application of emotional intelligence
+* Assess behavior through the use of personality indicators
+* Analyze personality indicators and adjust to the emotional needs of key project stakeholders
+
+Domain II
+Process-50%
+Task 1
+Execute project with the urgency required to deliver business value
+* Assess opportunities to deliver value incrementally
+* Examine the business value throughout the project
+* Support the team to subdivide project tasks as necessary to find the minimum viable product
+Task 2
+Manage communications
+* Analyze communication needs of all stakeholders
+* Determine communication methods, channels, frequency, and level of detail for all stakeholders
+* Communicate project information and updates effectively
+* Confirm communication is understood and feedback is received
+Task 3
+Assess and manage risks
+* Determine risk management options
+* Iteratively assess and prioritize risks
+Task 4
+Engage stakeholders
+* Analyze stakeholders (e.g., power interest grid, influence, impact)
+* Categorize stakeholders
+* Engage stakeholders by category
+* Develop, execute, and validate a strategy for stakeholder engagement
+Task 5
+Plan and manage budget and resources
+* Estimate budgetary needs based on the scope of the project and lessons learned from past projects
+* Anticipate future budget challenges
+* Monitor budget variations and work with governance process to adjust as necessary
+* Plan and manage resources
+
+
+Task 6
+Plan and manage schedule
+* Estimate project tasks (milestones, dependencies, story points)
+* Utilize benchmarks and historical data
+* Prepare schedule based on methodology
+* Measure ongoing progress based on methodology
+* Modify schedule, as needed, based on methodology
+* Coordinate with other projects and other operations
+Task 7
+Plan and manage quality of products/deliverables
+* Determine quality standard required for project deliverables
+* Recommend options for improvement based on quality gaps
+* Continually survey project deliverable quality
+Task 8
+Plan and manage scope
+* Determine and prioritize requirements
+* Break down scope (e.g., WBS, backlog)
+* Monitor and validate scope
+Task 9
+Integrate project planning activities
+* Consolidate the project/phase plans
+* Assess consolidated project plans for dependencies, gaps, and continued business value
+* Analyze the data collected
+* Collect and analyze data to make informed project decisions
+* Determine critical information requirements
+Task 10
+Manage project changes
+* Anticipate and embrace the need for change (e.g., follow change management practices)
+* Determine strategy to handle change
+* Execute change management strategy according to the methodology
+* Determine a change response to move the project forward
+Task 11
+Plan and manage procurement
+* Define resource requirements and needs
+* Communicate resource requirements
+* Manage suppliers/contracts
+* Plan and manage procurement strategy
+* Develop a delivery solution
+
+
+Task 12
+Manage project artifacts
+* Determine the requirements (what, when, where, who, etc.) for managing the project artifacts
+* Validate that the project information is kept up to date (i.e., version control) and accessible to all stakeholders
+* Continually assess the effectiveness of the management of the project artifacts
+Task 13
+Determine appropriate project methodology/methods and practices
+* Assess project needs, complexity, and magnitude
+* Recommend project execution strategy (e.g., contracting, finance)
+* Recommend a project methodology/approach (i.e., predictive, agile, hybrid)
+* Use iterative, incremental practices throughout the project life cycle (e.g., lessons learned, stakeholder engagement, risk)
+Task 14
+Establish project governance structure
+* Determine appropriate governance for a project (e.g., replicate organizational governance)
+* Define escalation paths and thresholds
+Task 15
+Manage project issues
+* Recognize when a risk becomes an issue
+* Attack the issue with the optimal action to achieve project success
+* Collaborate with relevant stakeholders on the approach to resolve the issues
+Task 16
+Ensure knowledge transfer for project continuity
+* Discuss project responsibilities within team
+* Outline expectations for working environment
+* Confirm approach for knowledge transfers
+Task 17
+Plan and manage project/phase closure or transitions
+* Determine criteria to successfully close the project or phase
+* Validate readiness for transition (e.g., to operations team or next phase)
+* Conclude activities to close out project or phase (e.g., final lessons learned, retrospective, procurement, financials, resources)
+
+Domain III
+Business Environment-8%
+Task 1
+Plan and manage project compliance
+* Confirm project compliance requirements (e.g., security, health and safety, regulatory compliance)
+* Classify compliance categories
+* Determine potential threats to compliance
+* Use methods to support compliance
+* Analyze the consequences of noncompliance
+* Determine necessary approach and action to address compliance needs (e.g., risk, legal)
+* Measure the extent to which the project is in compliance
+
+Task 2
+Evaluate and deliver project benefits and value
+* Investigate that benefits are identified
+* Document agreement on ownership for ongoing benefit realization
+* Verify measurement system is in place to track benefits
+* Evaluate delivery options to demonstrate value
+* Appraise stakeholders of value gain progress
+
+Task 3
+Evaluate and address external business environment changes for impact on scope
+* Survey changes to external business environment (e.g., regulations, technology, geopolitical, market)
+* Assess and prioritize impact on project scope/backlog based on changes in external business environment
+* Recommend options for scope/backlog changes (e.g., schedule, cost changes)
+* Continually review external business environment for impacts on project scope/backlog
+
+Task 4
+Support organizational change
+* Assess organizational culture
+* Evaluate impact of organizational change to project and determine required actions
+* Evaluate impact of the project to the organization and determine required actions
+
+PMP Application & Payment 
+PMP Eligibility Requirements
+To be eligible for the PMP certification, you must meet certain educational and professional experience requirements. All project management experience must have been accrued within the last eight consecutive years prior to your application submission.
+
+Educational Background
+Project Management Experience
+Secondary degree (high school diploma, associate's degree or global equivalent)
+Minimum five years/60 months unique non-overlapping professional project management experience
+OR
+Four-year degree (bachelor's degree or global equivalent)
+Minimum three years/36 months unique non-overlapping professional project management experience
+OR
+Bachelor's or post-graduate degree from a GAC accredited program * (bachelor's degree or master's or global equivalent)
+Minimum two years/24 months unique non-overlapping professional project management experience
+
+Experience must include leading and directing projects. A project is a temporary endeavor undertaken to create a unique product, service or result (as defined by the PMBOK(r) Guide).
+
+In addition to the above project management experience, applications must also have at least 35 contact hours of formal project management education unless they are an active CAPM holder. If you are an active CAPM certification holder, you do NOT need to document the 35 contact hours. Your project management education requirement is waived.
+
+If you are a graduate of a GAC accredited degree program you will receive a 12 month credit towards the work experience requirement. Also, you can use the GAC course work to fulfill the 35 education contact hour requirement. Learn more about the PMI Global Accreditation Center for Project Management Education Programs (GAC).
+
+PMP Application & Payment 
+How to Record Your Experience & Education on the Application
+Use the experience verification section of the online application to record your experience leading and directing the project. The experience does not necessarily have to be paid work, but it does need to be in a professional setting. Activities such as school projects or planning personal events would not qualify. All project experience must be recorded individually regardless of the number of projects you include.
+
+Number of Months of Project Management Experience
+Tenure is tracked in months, not number projects; therefore, 6 months of project management experience should be noted as such regardless of how many projects you worked on during those 6 months. Using this example below, the time spent working on Project 1 from January-April would count as four months toward the eligibility requirement, while the time spent working on Project 2 during May-June would count as two months toward the eligibility requirement. However, you cannot count the time working on both projects during February-April twice. Therefore, Project 1 and Project 2 equal six months (January-June) of project management experience toward your eligibility requirement.
+
+Contact Hours of Project Management Education
+Verify at least 35 contact hours of specific instruction that addressed learning objectives in project management. Record all education hours regardless of when they were accrued. The course work must be completed by the time you submit the application.
+
+The course hours may include content on project quality, project scope, project schedule, project budget, project communications, project risk, project procurement, project cost, project resources, project stakeholder, and project integration management.
+
+PMP Application & Payment 
+You can satisfy the education requirements by demonstrating the successful completion of courses, workshops and training sessions offered by one or more of the following types of education providers:
+A. PMI Authorized Training Partners (ATPs)
+B. PMI chapters *
+C. Employer/company-sponsored programs
+D. Training companies or consultants (e.g., training schools)
+E. Distance-learning companies, including an end-of-course assessment
+F. University/college academic and continuing education programs
+
+The following education does not satisfy the education requirements: PMI chapter meetings*
+Self-directed learning (e.g., reading books, watching instructional videos that do not include an end-of-course assessment)
+*If at least one hour of a chapter meeting is spent conducting a learning activity, the hour(s) spent in that activity can be counted towards the educational eligibility requirement.
+
+PMI strives to process applications in a timely manner. The processing time for applications submitted online is 5 calendar days. This processing timeline does not apply if your application has been selected for PMI's audit process (refer to the PMI Audit Process section in the handbook for more details).
+
+PMP Application & Payment 
+PMP Certification Fees
+The fees for obtaining the PMP Certification are subject to regional and membership pricing rules. Membership is NOT required to obtain the PMP. Initial examination fees must be paid after applications have been approved before you can schedule your examination.
+
+If you need to retake the exam, and your eligibility period is still current, you may do so for a substantial discount subject to regional and membership pricing rules. Additionally, once an examination date is confirmed and scheduled, you may be subject to cancellation or no-show fees.
+
+Once scores are received, you may request a manual hand score if your original test was not delivered on a computer but instead using a paper based administration. The fee for a hand rescore is $45 USD.
+
+Lastly, renewing your PMP Certification will require a payment based on regional and membership pricing rules.
+
+We currently support USD, Euros, BRL, and INR currencies.
+
+PMI accepts the following payment methods: credit card and wire transfer
+
+Please note that reexamination fees are waived for candidates who have had their exam scores invalidated solely due to data forensics evidence.
+
+PMP Examination Information 
+The PMP examination is comprised of 180 questions. Of the 180 questions, 5 are considered pretest questions. Pretest questions do not affect the score and are used in examinations as an effective and legitimate way to test the validity of future examination questions. All questions are randomly placed throughout the examination. For a list of current item types included in the exam, please refer to the PMP  Exam Updates page on pmi.org.
+
+
+No. of Scored Questions
+No. of Pretest (Unscored)
+Questions
+Total Examination
+Questions
+
+175
+
+5
+
+180
+
+The allotted time to complete the center-based examination is 230 minutes.
+
+
+Allotted Examination Time
+
+230 Minutes
+
+It may take you less than the allotted time to complete the examination.
+
+For the PMP exam, there are now two 10-minute breaks in the exam. The first will appear after you complete questions 1- 60 and review all of your answers. The second break will appear after you have completed question 120 and confirmed that you have reviewed all of your answers. Please note, once you review your responses and start your break you will not be able to return to the questions from the previous section of the exam.
+
+When you are signed back in after each break, you will have the remaining allotted time to complete the remaining section(s). In total, you will have 230 minutes to respond to 180 questions.
+
+The examination is preceded by a tutorial and followed by a survey, both of which are optional, and take 5-15 minutes to complete. The time used to complete the tutorial and survey is not included in the examination time of 230 minutes.
+
+
+Retaking the Exam
+
+If you do not pass your first exam attempt, we encourage you to continue your study and retake the exam. You may take the examination up to three times within your one-year eligibility period. After three attempts, you must wait one year from the date of the last examination before you reapply for the certification. This policy is to designed to uphold exam security and reduce overexposure of examination questions to individual candidates. However, during this year you are welcome to apply for any other PMI certification.
+
+If your one year eligibility period expires without you passing the examination, you must reapply for the certification.
+
+
+
+POWERING THE PROJECT ECONOMY(tm)
+
+
+PMI.org
+
+(c) 2020 Project Management Institute, Inc. All rights reserved. "PMI", the PMI logo, "CAPM", "PMP", "PfMP", "PgMP", "PMI-ACP", "PMI-PBA", "PMI-RMP", "PMI-SP" and "Powering The Project Economy" are marks of Project Management Institute, Inc. (4/20)
+
