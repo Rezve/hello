@@ -1,6 +1,6 @@
 import { Chatter } from "./chatter";
 import { ChromaDB } from "./chroma-db";
-import { Trainer } from "./trainer";
+import { Feeder } from "./feeder";
 
 
 (async() => {
@@ -10,8 +10,8 @@ import { Trainer } from "./trainer";
     ]
 
     // first time only or this can be a separate one time operation
-    const trainer = new Trainer();
-    await trainer.train(files);   
+    const feeder = new Feeder();
+    await feeder.feed(files);   
 
     // start asking question from pmp guideline
     const chatter = new Chatter(db);

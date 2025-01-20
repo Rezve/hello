@@ -1,9 +1,9 @@
 import { ChromaDB } from "./chroma-db";
 import { Reader } from "./reader";
 
-export class Trainer {
-    async train(files: string[]) {
-        console.info("Training started");
+export class Feeder {
+    async feed(files: string[]) {
+        console.info("Feeding started");
 
         const db = new ChromaDB();
         const reader = new Reader();
@@ -19,6 +19,6 @@ export class Trainer {
             await db.insert(file, chunks)
         }
 
-        console.info("Training has been completed!");
+        console.info("Feeding has been completed!");
     }
 }

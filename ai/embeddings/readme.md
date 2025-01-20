@@ -7,7 +7,7 @@ This is a test project designed to explore how embeddings work. The goal of this
 
 ## How It Works
 
-### Training
+### Feeding
 
 1. Read text data from the `data` folder.
 2. Chunk the text into smaller segments.
