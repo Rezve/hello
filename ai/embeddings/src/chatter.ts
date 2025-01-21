@@ -36,8 +36,8 @@ export class Chatter {
     }
 
     async answer(question: string) {
-        const queryembed = (await ollama.embeddings({ model: 'nomic-embed-text', prompt: question })).embedding;
-        const relevantDocs = await this.db.find(queryembed);
+        const queryEmbed = (await ollama.embeddings({ model: 'nomic-embed-text', prompt: question })).embedding;
+        const relevantDocs = await this.db.find(queryEmbed);
         const modelQuery = `${question} - Answer that question using the following text as a resource: ${relevantDocs}`
         
         return await ollama.generate({ model: 'llama3.2', prompt: modelQuery, stream: true });
