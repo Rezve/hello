@@ -30,6 +30,14 @@ Each experiment usually contains:
 - Notes or documentation on what the experiment is about
 - Any setup or configuration instructions
 
+## Setup new Node.js project
+
+```bash
+yarn init
+yarn add @types/node typescript nodemon -D
+npx tsc --init
+```
+
 ## Contributing
 
 While this repository is mostly for my personal use, you're welcome to contribute! If you have ideas, improvements, or want to share your own experiments, feel free to open an issue or submit a pull request.
