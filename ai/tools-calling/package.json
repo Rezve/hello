@@ -1,0 +1,25 @@
+{
+  "name": "tooling",
+  "version": "1.0.0",
+  "description": "Test session based chatting",
+  "main": "index.js",
+  "author": "Md. Rezve Hasan",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon ./src/app.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "ai": "^4.1.2",
+    "dotenv": "^16.4.7",
+    "mathjs": "^14.0.1",
+    "ollama-ai-provider": "^1.2.0",
+    "zod": "^3.24.1"
+  }
+}
