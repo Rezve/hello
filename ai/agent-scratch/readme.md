@@ -57,8 +57,52 @@ The system consists of two agents:
 
 ---
 
-### **How It Works:**
-- The agent takes user input in the form of instructions (e.g., visiting a URL, interacting with UI elements).
-- It uses a headless browser (via Puppeteer) to visit the specified web page, interact with the DOM, and perform the necessary actions.
-- The browser is closed after the task finishes.
+### **Logs:**
+
+```bash
+🚀 Task lists:  [
+  {
+    task: 'Open a web browser and navigate to https://example.com/',
+    details: ''
+  },
+  {
+    task: 'Find the DOM selector of the element with text content "More information...".',
+    details: ''
+  },
+  { task: 'Click on the element found in step 2.', details: '' },
+  {
+    task: 'Take a screenshot of the page after clicking on the element.',
+    details: ''
+  },
+  { task: 'Close the web browser.', details: '' }
+]
+Executing task:  {
+  task: 'Open a web browser and navigate to https://example.com/',
+  details: ''
+}
+🚀 loadPageAndGetHTMLContent: https://example.com/
+Task Response:  
+Executing task:  {
+  task: 'Find the DOM selector of the element with text content "More information...".',
+  details: ''
+}
+Task Response:  <tool_call>
+{"id": 0, "name": "getSelector", "arguments": {"userLookingFor": "More information...", "htmlContent": "<!DOCTYPE html><html><head>\n    <title>Example Domain</title>\n\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <style type=\"text/css\">\n    body {\n        background-color: #f0f0f2;\n        margin: 0;\n        padding: 0;\n        font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", \"Open Sans\", \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n  
+
+    \n    div {\n        width: 600px;\n        margin: 5em auto;\n        padding: 2em;\n        background-color: #fdfdff;\n        border-radius: 0.5em;\n        box-shadow: 2px 3px 7px 2px rgba(0,0,0,0.02);\n    }\n    a:link, a:visited {\n        color: #38488f;\n        text-decoration: none;\n    }\n    
+@media (max-width: 700px) {\n        div {\n            margin: 0 auto;\n            width: auto;\n        }\n    }\n    </style>    \n</head>\n\n<body>\n<div>\n    <h1>Example Domain</h1>\n    <p>This domain is for use in illustrative examples in documents. You may use this\n    domain in literature without prior coordination or asking for permission.</p>\n    <p><a href=\"https://www.iana.org/domains/example\">More information...</a></p>\n</div>\n\n</body></html>"}}
+</tool_call>
+Executing task:  { task: 'Click on the element found in step 2.', details: '' }
+🚀 click selector: a[href='https://www.iana.org/domains/example']
+Task Response:
+Executing task:  {
+  task: 'Take a screenshot of the page after clicking on the element.',
+  details: ''
+}
+🚀 Taking screenshot
+Task Response:
+Executing task:  { task: 'Close the web browser.', details: '' }
+Task Response:
+Done
+```
 
