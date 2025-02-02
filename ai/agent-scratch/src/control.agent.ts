@@ -40,7 +40,7 @@ export class ControlAgent {
             Give me task from this user question: ${this.taskDetails}
         `);
         let structuredResponse = (await this.taskManager.transform(this.taskDetails, response))?.object as { task: string, details: string }[]
-        console.log("🚀 Structured Response: ", structuredResponse)
+        console.log("🚀 Task lists: ", structuredResponse)
 
         // Execute all task using browser agent
         for (const step of structuredResponse) {
