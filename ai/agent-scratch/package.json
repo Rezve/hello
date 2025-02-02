@@ -1,0 +1,25 @@
+{
+  "name": "agent-scratch",
+  "version": "1.0.0",
+  "description": "Agent test from scratch",
+  "main": "index.js",
+  "author": "Md. Rezve Hasan",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "nodemon ./src/app.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "ai": "^4.1.16",
+    "dotenv": "^16.4.7",
+    "ollama-ai-provider": "^1.2.0",
+    "puppeteer": "^24.1.1",
+    "zod": "^3.24.1"
+  }
+}
