@@ -1,6 +1,6 @@
-# Session-Based Chat with LLM
+# Tool Calling
 
-This repository contains a simple experiment where I tested session-based chatting with a large language model (LLM). The goal is to maintain the full conversation in memory and pass it back and forth.
+I tested tool calling ability of LLM models
 
 ## Setup Instructions
 
