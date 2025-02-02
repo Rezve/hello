@@ -76,7 +76,6 @@ export class BrowserAgent extends LLM {
                 execute: async ({ selector }) => {
                     console.log("🚀 click selector:", selector)
                     await this.page.click(selector)
-                    await this.page.screenshot({ path: `after_click_${new Date().getTime()}.png` });
                     return;
                 }
             }),

@@ -6,7 +6,7 @@ import { ControlAgent } from "./control.agent";
         When the page is loaded, find the dom selector of 'More information...' link.
         Once you found the link, click on it. 
         After clicking on the link take a screenshot.
-        When all done call tool to close the browser
+        When all done, close the browser
     `;
 
     const agent = new ControlAgent(task);
