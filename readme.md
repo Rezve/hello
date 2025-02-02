@@ -34,7 +34,7 @@ Each experiment usually contains:
 
 ```bash
 yarn init
-yarn add @types/node typescript nodemon -D
+yarn add @types/node typescript nodemon ts-node -D
 npx tsc --init
 ```
 
