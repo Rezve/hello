@@ -1,0 +1,2 @@
+service:
+  targetPort: 3000
