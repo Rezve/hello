@@ -47,3 +47,5 @@ While this repository is mostly for my personal use, you're welcome to contribut
 This is an experimentation space, so the code might not be production-ready. Expect incomplete features or non-optimal solutions, as the goal is to learn and explore.
 
 Thanks for checking out my repository, and happy coding!
+
+![Visitors](https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2FRezve%2Fhello&countColor=%23263759&style=flat-square)
