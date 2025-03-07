@@ -1,0 +1,3 @@
+
+alertManager:
+  slackWebhook: "<hook-url>"

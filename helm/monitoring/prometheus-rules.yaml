@@ -1,0 +1,11 @@
+groups:
+  - name: high-cpu-usage
+    rules:
+      - alert: HighCPUUsage
+        expr: sum(rate(process_cpu_seconds_total[5m])) > 1
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High CPU usage detected"
+          description: "CPU usage is above 80% for the last 1 minute."

@@ -1,2 +1,49 @@
 service:
   servicePort: 8080
+
+serverFiles:
+  alerting_rules.yml:
+    groups:
+      - name: high-cpu-usage
+        rules:
+          - alert: HighCPUUsage
+            expr: sum(process_cpu_seconds_total) > 22
+            for: 0m
+            labels:
+              severity: critical
+            annotations:
+              summary: "High CPU usage detected"
+              description: "CPU usage is above 80% for the last 1 minute."
+
+alertmanager:
+  extraEnv:
+    - name: SLACK_WEBHOOK_URL
+      valueFrom:
+        secretKeyRef:
+          name: monitoring-secret
+          key: slack-webhook
+  config:
+    route:
+      group_by: ['alertname']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 3h
+      receiver: 'slack-notifications'
+    receivers:
+      - name: 'slack-notifications'
+        slack_configs:
+          - api_url: "${SLACK_WEBHOOK_URL}"
+            channel: '#infra-visibility'
+            send_resolved: true
+            text: "<!channel> \nsummary: {{ .CommonAnnotations.summary }}\ndescription: {{ .CommonAnnotations.description }}"
+
+# extraSecretMounts:
+#   - name: slack-secret
+#     secretName: monitoring-secret
+#     mountPath: "/etc/alertmanager/secrets"
+#     subPath: slack-webhook
+#     readOnly: true
+
+# extraEnvFrom:
+#   - secretRef:
+#       name: monitoring-secret
