@@ -1,0 +1,23 @@
+{
+  "name": "mssql-fake-data-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/app.ts"
+  },
+  "devDependencies": {
+    "@types/faker": "^6.6.11",
+    "@types/mssql": "^9.1.7",
+    "@types/node": "^22.13.9",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "dotenv": "^16.4.7",
+    "knex": "^3.1.0",
+    "mssql": "^11.0.1"
+  }
+}
