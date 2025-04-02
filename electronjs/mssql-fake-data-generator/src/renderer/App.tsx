@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './styles/App.css';
+import HomePage from './pages/HomePage';
 
 const App: React.FC = () => {
   const [nodeVersion, setNodeVersion] = useState('');
@@ -14,11 +15,9 @@ const App: React.FC = () => {
     // Example: Read a file (adjust path as needed)
     try {
       window.electronAPI.readFile('test.txt').then(setFileContent).catch((err) => {
-        console.log("hi------", err);
         setFileContent(err)
       });
     } catch (err) {
-      console.log("🚀 ~ useEffect ~ err:", err)
       setFileContent('Error reading file');
     }
 
@@ -33,10 +32,11 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <h1>Welcome to My Electron + React + TypeScript App!</h1>
+      <HomePage />
+      {/* <h1>Welcome to My Electron + React + TypeScript App!</h1>
       <p>Node.js Version: {nodeVersion}</p>
       <p>File Content: {fileContent}</p>
-      <p>Message from Main: {message}</p>
+      <p>Message from Main: {message}</p> */}
     </div>
   );
 };

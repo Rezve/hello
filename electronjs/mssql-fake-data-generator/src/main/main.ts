@@ -3,8 +3,8 @@ import * as path from 'path';
 
 function createWindow(): void {
   const win: BrowserWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1000,
+    height: 800,
     webPreferences: {
       nodeIntegration: false, // Disable direct Node.js access in renderer
       contextIsolation: true, // Enable context isolation for security

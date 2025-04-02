@@ -5,7 +5,7 @@
   "main": "dist/main/main.js",
   "scripts": {
     "start": "electron .",
-   "dev": "tsc && webpack --mode development && electron .",
+    "dev": "tsc && webpack --mode development && electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Md. Rezve Hasan",
@@ -25,6 +25,7 @@
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.7.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   }
