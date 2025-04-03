@@ -1,4 +1,3 @@
-// HomePage.tsx
 import React from 'react';
 import GeneratorFunction from '../components/GeneratorFunction';
 import BatchConfig from '../components/BatchConfig';

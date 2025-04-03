@@ -1,8 +1,9 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import * as path from 'path';
+import { registerHandlers } from './ipc-handlers';
 
 function createWindow(): void {
-  const win: BrowserWindow = new BrowserWindow({
+  const mainWindow: BrowserWindow = new BrowserWindow({
     width: 1000,
     height: 800,
     webPreferences: {
@@ -12,9 +13,11 @@ function createWindow(): void {
     },
   });
 
+  registerHandlers(mainWindow);
+
   const htmlPath = path.join(__dirname, '../index.html');
   console.log('Loading HTML from:', htmlPath);
-  win.loadFile(htmlPath).catch((err) => {
+  mainWindow.loadFile(htmlPath).catch((err) => {
     console.error('Failed to load HTML:', err);
   });
 

@@ -1,21 +1,20 @@
 import { contextBridge, ipcRenderer } from 'electron';
 
-// Expose a function to the renderer process
 contextBridge.exposeInMainWorld('electronAPI', {
-  // Example: A function to get the current Node.js process version
-  getNodeVersion: () => process.version,
-  
-  // Example: A custom Node.js function to read a file (requires 'fs')
-  readFile: (filePath: string) => {
-    const { readFile } = require('fs/promises')
-    return readFile(filePath, 'utf8');
+  invoke: (channel: string, data: any) => {
+    const validChannels = ['files:list'];
+    if (validChannels.includes(channel)) {
+      return ipcRenderer.invoke(channel, data);
+    }
+    throw new Error(`Invalid channel: ${channel}`);
   },
-
-  // Example: IPC to send/receive messages between main and renderer
-  sendMessage: (channel: string, data: any) => {
-    ipcRenderer.send(channel, data);
+  on: (channel: string, callback: any) => {
+    const validChannels = ['update:status'];
+    if (validChannels.includes(channel)) {
+      ipcRenderer.on(channel, (event, ...args) => callback(...args));
+    }
   },
-  onMessage: (channel: string, callback: (data: any) => void) => {
-    ipcRenderer.on(channel, (event, data) => callback(data));
+  removeAllListeners: (channel: string) => {
+    ipcRenderer.removeAllListeners(channel);
   },
 });

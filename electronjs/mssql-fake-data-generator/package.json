@@ -12,6 +12,7 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "@types/electron": "^1.6.12",
     "@types/node": "^22.13.17",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
