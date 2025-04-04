@@ -4,7 +4,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   invoke: (channel: string, data: any) => {
     const validChannels = [
       'config:db',
-      'storage:store-key',
       'storage:retrieve-key',
       'storage:encrypt',
       'storage:decrypt',

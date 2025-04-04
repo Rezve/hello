@@ -36,14 +36,12 @@ const DBConfig: React.FC = () => {
   };
 
   const saveConfig = async (dbConfig: any) => {
-    const response = await IPCService.saveDBConfig(dbConfig);
-    console.log("🚀 ~ saveConfig ~ response:", response)
+    await IPCService.saveDBConfig(dbConfig);
   }
 
     useEffect(() => {
       async function loadData() {
         const config = await IPCService.loadConfig();
-        console.log("🚀 ~ loadData ~ config:", config)
         if (!config) {
           setDbConfig({
             host: "localhost",
@@ -71,9 +69,9 @@ const DBConfig: React.FC = () => {
         setIsConnected(true)
         addNotification('Collection Established Successfully', 'success')
         setIsDbConfigOpen(false);
+        await saveConfig(dbConfig);
         return;
       }
-      await saveConfig(dbConfig);
       addNotification(`Error: ${response.message}`, 'error')
   }
 

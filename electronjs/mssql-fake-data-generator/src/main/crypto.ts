@@ -2,7 +2,6 @@ import crypto from 'crypto';
 const algorithm = 'aes-256-cbc';
 
 export function encrypt(text: string, key: string) {
-    console.log("🚀 ~ encrypt ~ key:",text, typeof text, key.length)
     const iv = crypto.randomBytes(16);
     const cipher = crypto.createCipheriv(algorithm, key, iv);
     let encrypted = cipher.update(text, 'utf8', 'hex');

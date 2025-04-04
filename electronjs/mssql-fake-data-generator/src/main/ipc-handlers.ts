@@ -8,11 +8,6 @@ import { loadConfig, saveConfig } from "../utils/storage";
 function registerHandlers(mainWindow: BrowserWindow) {
   ipcMain.handle('config:db',  async (event, dbConfig) => DataGeneratorManager.setDBConfig(event, dbConfig))
 
-  ipcMain.handle('storage:store-key', async (event, account) => {
-    console.log("🚀 ~ ipcMain.handle ~ storage:store-key:", account)
-    return await storeKey(account);
-  });
-
   ipcMain.handle('storage:retrieve-key', async (event, account) => {
     console.log("🚀 ~ ipcMain.handle ~ storage:retrieve-key:", account)
     return await getKey(account);

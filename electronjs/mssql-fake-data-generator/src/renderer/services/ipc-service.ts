@@ -16,12 +16,10 @@ export class IPCService {
     }
 
     static async saveDBConfig(config: any) {
-      // find existing key for encryption
+      // find existing key for encryption,  if not found it will generate one
       let key = await window.electronAPI.invoke('storage:retrieve-key', 'encryptionKey');
-
-      // if not found generate one
       if (!key) {
-        key = await window.electronAPI.invoke('storage:store-key', 'encryptionKey');
+        throw new Error('Error: Unable to create encryptionKey')
       }
 
       // use it to encrypt password
@@ -42,12 +40,6 @@ export class IPCService {
         config.password = await window.electronAPI.invoke('storage:decrypt', { encryptedText: config?.encryptedPassword?.encryptedData, key, iv: config?.encryptedPassword?.iv })
         delete config.encryptedPassword;
       }
-
-      console.log("===============config:========", config)
       return config;
-    }
-
-    static async getSavedDBConfig() {
-
     }
   }
