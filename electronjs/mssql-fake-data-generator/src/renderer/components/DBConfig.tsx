@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IPCService } from "../services/ipc-service";
 import { useNotification } from "./notification/NotificationContext";
 
@@ -35,17 +35,46 @@ const DBConfig: React.FC = () => {
     setDbConfig((prev) => ({ ...prev, [field]: value }));
   };
 
+  const saveConfig = async (dbConfig: any) => {
+    const response = await IPCService.saveDBConfig(dbConfig);
+    console.log("🚀 ~ saveConfig ~ response:", response)
+  }
+
+    useEffect(() => {
+      async function loadData() {
+        const config = await IPCService.loadConfig();
+        console.log("🚀 ~ loadData ~ config:", config)
+        if (!config) {
+          setDbConfig({
+            host: "localhost",
+            user: "test_user",
+            password: "",
+            database: "test-db",
+            port: 1433,
+            encrypt: false,
+            trustServerCertificate: true,
+          })
+
+          return;
+        }
+
+        setDbConfig(config as any)
+      }
+      
+      loadData();
+    }, []);
+
   const connect = async () => {
     const response = await IPCService.setDBConfig(dbConfig) as any;
     console.log('Response: ', isConnected, response.success)
     if (response.success  == true ) {
-      setIsConnected(true)
-      addNotification('Collection Established Successfully', 'success')
-      setIsDbConfigOpen(false);
-      return;
-    }
-
-    addNotification(`Error: ${response.message}`, 'error')
+        setIsConnected(true)
+        addNotification('Collection Established Successfully', 'success')
+        setIsDbConfigOpen(false);
+        return;
+      }
+      await saveConfig(dbConfig);
+      addNotification(`Error: ${response.message}`, 'error')
   }
 
   return (

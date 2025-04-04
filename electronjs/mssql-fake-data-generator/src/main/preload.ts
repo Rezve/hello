@@ -2,7 +2,16 @@ import { contextBridge, ipcRenderer } from 'electron';
 
 contextBridge.exposeInMainWorld('electronAPI', {
   invoke: (channel: string, data: any) => {
-    const validChannels = ['files:list', 'config:db'];
+    const validChannels = [
+      'config:db',
+      'storage:store-key',
+      'storage:retrieve-key',
+      'storage:encrypt',
+      'storage:decrypt',
+      'storage:saveConfig',
+      'storage:loadConfig'
+    ];
+
     if (validChannels.includes(channel)) {
       return ipcRenderer.invoke(channel, data);
     }
