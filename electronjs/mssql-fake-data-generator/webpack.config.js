@@ -17,7 +17,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+        use: [
+          'style-loader',   // Injects CSS into the DOM
+          'css-loader',     // Resolves CSS imports
+          'postcss-loader', // Processes CSS with PostCSS (Tailwind)
+        ],
       },
     ],
   },
