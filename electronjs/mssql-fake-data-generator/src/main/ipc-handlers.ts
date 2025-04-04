@@ -3,7 +3,7 @@ import { ipcMain } from 'electron';
 import { DataGeneratorManager } from "./data-generator.manager";
 import { getKey, storeKey } from "./setup-keychain";
 import { decrypt, encrypt } from "./crypto";
-import { loadConfig, saveConfig } from "../utils/storage";
+import { loadConfig, saveConfig } from "./storage";
 
 function registerHandlers(mainWindow: BrowserWindow) {
   ipcMain.handle('config:db',  async (event, dbConfig) => DataGeneratorManager.setDBConfig(event, dbConfig))
