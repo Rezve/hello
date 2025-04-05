@@ -64,7 +64,6 @@ const DBConfig: React.FC = () => {
 
   const connect = async () => {
     const response = await IPCService.setDBConfig(dbConfig) as any;
-    console.log('Response: ', isConnected, response.success)
     if (response.success  == true ) {
         setIsConnected(true)
         addNotification('Collection Established Successfully', 'success')

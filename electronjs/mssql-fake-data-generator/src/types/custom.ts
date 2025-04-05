@@ -1,3 +1,5 @@
+import { BatchConfig } from "../renderer/components/BatchConfig";
+
 export interface ElectronAPI {
   getNodeVersion: () => string;
   readFile: (filePath: string) => Promise<string>;
@@ -7,6 +9,8 @@ export interface ElectronAPI {
   invoke: (channel: string, data: any) => Promise<string[]>;
   on: (channel: string, callback: (data: any) => void) => void;
   removeAllListeners: (channel: string) => void;
+  start: (channel: string, batchConfig: BatchConfig) => void;
+  stop: (channel: string) => void;
 }
 
 export {};

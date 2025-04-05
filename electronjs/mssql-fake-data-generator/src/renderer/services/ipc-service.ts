@@ -1,3 +1,5 @@
+import { BatchConfig } from "../components/BatchConfig";
+
 export class IPCService {  
     static listenForUpdates(callback: any) {
       window.electronAPI.on('update:status', (data: any) => callback(data));
@@ -41,5 +43,13 @@ export class IPCService {
         delete config.encryptedPassword;
       }
       return config;
+    }
+
+    static start(batchConfig: BatchConfig) {
+      window.electronAPI.start('app:start', batchConfig);
+    }
+
+    static stop() {
+      window.electronAPI.stop('app:stop');
     }
   }

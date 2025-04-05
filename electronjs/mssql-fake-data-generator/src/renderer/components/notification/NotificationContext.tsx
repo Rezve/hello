@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 import { NotificationContainer } from './NotificationContainer'
-
-// Define notification types
-export type NotificationType = 'success' | 'warning' | 'error';
+import { NotificationType } from './Notification';
 
 interface Notification {
   id: number;

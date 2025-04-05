@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext } from 'react';
 import './Notification.css';
 
 // Define notification types
@@ -26,7 +26,6 @@ interface NotificationProps {
 }
 
 export const Notification: React.FC<NotificationProps> = ({ message, type, onClose }) => {
-  console.log('Rendering Notification:', { message, type });
   const getTypeStyles = (): string => {
     switch (type) {
       case 'success':

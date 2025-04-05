@@ -1,4 +1,5 @@
 import { contextBridge, ipcRenderer } from 'electron';
+import { BatchConfig } from '../renderer/components/BatchConfig';
 
 contextBridge.exposeInMainWorld('electronAPI', {
   invoke: (channel: string, data: any) => {
@@ -8,7 +9,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
       'storage:encrypt',
       'storage:decrypt',
       'storage:saveConfig',
-      'storage:loadConfig'
+      'storage:loadConfig',
+      'app:start'
     ];
 
     if (validChannels.includes(channel)) {
@@ -17,7 +19,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
     throw new Error(`Invalid channel: ${channel}`);
   },
   on: (channel: string, callback: any) => {
-    const validChannels = ['update:status'];
+    const validChannels = ['app:progress'];
     if (validChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, ...args) => callback(...args));
     }
@@ -25,4 +27,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   removeAllListeners: (channel: string) => {
     ipcRenderer.removeAllListeners(channel);
   },
+  start: (channel: string, batchConfig: BatchConfig) => ipcRenderer.send(channel, batchConfig),
+  stop: (channel: string) => ipcRenderer.send(channel),
 });

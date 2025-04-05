@@ -27,6 +27,14 @@ function registerHandlers(mainWindow: BrowserWindow) {
   ipcMain.handle('storage:loadConfig', async (event) => {
     return await loadConfig();
   });
+
+  ipcMain.on('app:start', (event, batchConfig) => {
+    DataGeneratorManager.start(mainWindow, batchConfig);
+  })
+
+  ipcMain.on('app:stop', (event) => {
+    DataGeneratorManager.stop(mainWindow);
+  })
 }
 
 export { registerHandlers }

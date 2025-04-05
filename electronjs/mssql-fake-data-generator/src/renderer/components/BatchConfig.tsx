@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { IPCService } from "../services/ipc-service";
 
 interface LogEntry {
     id: number;
@@ -6,94 +7,38 @@ interface LogEntry {
     message: string;
   }
 
+export interface BatchConfig {
+  totalRecords: number;
+  batchSize: number;
+  concurrentBatches: number;
+  logInterval: number;
+}
+
 const BatchConfig: React.FC = () => {
 
-    let code = ''
-
     const [isConfigOpen, setIsConfigOpen] = useState(true);
-
     const [totalRecords, setTotalRecords] = useState<number>(1000);
     const [batchSize, setBatchSize] = useState<number>(100);
     const [concurrentBatches, setConcurrentBatches] = useState<number>(2);
     const [logInterval, setLogInterval] = useState<number>(1000);
     const [isRunning, setIsRunning] = useState<boolean>(false);
-    const [logs, setLogs] = useState<LogEntry[]>([]);
 
-    const logContainerRef = useRef<HTMLDivElement>(null);
-      const workerRef = useRef<Worker | null>(null);
+    const handleStart = async () => {      
+      const batchConfig: BatchConfig = {
+        totalRecords,
+        batchSize,
+        concurrentBatches,
+        logInterval
+      }
+      // TODO: add batch config validation
+      await IPCService.start(batchConfig);
+      setIsRunning(true);
+    };
 
-    const handleStart = () => {
-        setIsRunning(true);
-        setLogs([]);
-        
-        const worker = new Worker(URL.createObjectURL(
-          new Blob([`
-            ${code}
-            self.onmessage = (e) => {
-              const { total, batchSize, concurrent } = e.data;
-              let generated = 0;
-              
-              const generateBatch = () => {
-                const batch = [];
-                const batchCount = Math.min(batchSize, total - generated);
-                for (let i = 0; i < batchCount; i++) {
-                  batch.push(generateFakeUser());
-                }
-                generated += batchCount;
-                self.postMessage({
-                  type: 'batch',
-                  data: batch,
-                  progress: generated / total
-                });
-                if (generated < total) {
-                  setTimeout(generateBatch, 0);
-                } else {
-                  self.postMessage({ type: 'complete' });
-                }
-              };
-              
-              for (let i = 0; i < concurrent; i++) {
-                generateBatch();
-              }
-            };
-          `], { type: 'application/javascript' })
-        ));
-    
-        workerRef.current = worker;
-    
-        worker.onmessage = (e) => {
-          if (e.data.type === 'batch') {
-            addLog(`Generated batch: ${e.data.data.length} records (Progress: ${(e.data.progress * 100).toFixed(2)}%)`);
-            // Here you could add logic to send batch to database using dbConfig
-          } else if (e.data.type === 'complete') {
-            setIsRunning(false);
-            addLog('Generation complete!');
-            worker.terminate();
-          }
-        };
-    
-        worker.postMessage({
-          total: totalRecords,
-          batchSize,
-          concurrent: concurrentBatches
-        });
-      };
-
-      const handleStop = () => {
-        if (workerRef.current) {
-          workerRef.current.terminate();
-          setIsRunning(false);
-          addLog('Generation stopped by user');
-        }
-      };
-
-      const addLog = (message: string) => {
-        setLogs(prev => [...prev, {
-          id: Date.now(),
-          timestamp: new Date().toLocaleTimeString(),
-          message
-        }]);
-      };
+    const handleStop = () => {
+        setIsRunning(false);
+        IPCService.stop();
+    };
 
     return <div className={`config-section ${isConfigOpen ? 'open' : 'closed'}`}>
         <div className="section-header">
