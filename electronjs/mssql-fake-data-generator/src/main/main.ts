@@ -4,13 +4,18 @@ import { registerHandlers } from './ipc-handlers';
 
 function createWindow(): void {
   const mainWindow: BrowserWindow = new BrowserWindow({
-    width: 1000,
-    height: 800,
+    show: false,
+    backgroundColor: '#f3f4f6',
     webPreferences: {
       nodeIntegration: false, // Disable direct Node.js access in renderer
       contextIsolation: true, // Enable context isolation for security
       preload: path.join(__dirname, 'preload.js'), // Path to compiled preload script
     },
+  });
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.maximize();
+    mainWindow.show();
   });
 
   registerHandlers(mainWindow);
