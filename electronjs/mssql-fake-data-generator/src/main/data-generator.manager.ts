@@ -1,12 +1,13 @@
 import { BatchConfig } from "../renderer/components/BatchConfig";
 import DatabaseConnection from "../data-generator/connection";
 import { BrowserWindow } from "electron";
+import { DataInserter } from "../data-generator/inserter";
 
 
 export class DataGeneratorManager {
     static dbConfig = {};
-    static DB:DatabaseConnection;
-    static shouldStopProcess: boolean = false;
+    static DB: DatabaseConnection;
+    static inserter: DataInserter;
 
     static async setDBConfig(event: any, dbConfig: any) {
         try {
@@ -29,25 +30,15 @@ export class DataGeneratorManager {
     }
 
     static async start(window: BrowserWindow, batchConfig: BatchConfig) {
-        this.shouldStopProcess = false;
-
-        for (let index = 0; index < 60; index++) {
-            if (this.shouldStopProcess) {
-                console.log('Process stopped by user')
-                break;
-            }
-
-            await this.sleep(1);
-
-
-            window.webContents.send('app:progress', { log: 'hello ' + index})
-
-            console.log('Working....'+ index)
-        }
+        const { totalRecords, batchSize, concurrentBatches, logInterval } = batchConfig;
+        this.inserter = new DataInserter(this.DB, totalRecords, batchSize, concurrentBatches, logInterval);
+        await this.inserter.insertAll(window)
+        window.webContents.send('app:progress', { log: `Total ${totalRecords} Rows Insertion Complete`})
+        window.webContents.send('app:complete', {})
     }
 
     static stop(window: BrowserWindow) {
-        this.shouldStopProcess = true;
+        this.inserter.stop();
         window.webContents.send('app:progress', { log: 'Operation stopped by user'})
     }
 

@@ -40,6 +40,13 @@ const BatchConfig: React.FC = () => {
         IPCService.stop();
     };
 
+    useEffect(() => {
+        const handleProgress = (data: any) => {
+            setIsRunning(false);
+        };
+        window.electronAPI.on('app:complete', handleProgress);
+      }, []);
+
     return <div className={`config-section ${isConfigOpen ? 'open' : 'closed'}`}>
         <div className="section-header">
             <h2>Batch Configuration</h2>

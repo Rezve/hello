@@ -19,7 +19,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
     throw new Error(`Invalid channel: ${channel}`);
   },
   on: (channel: string, callback: any) => {
-    const validChannels = ['app:progress'];
+    const validChannels = [
+      'app:progress',
+      'app:complete'
+    ];
     if (validChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, ...args) => callback(...args));
     }
