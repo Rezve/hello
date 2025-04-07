@@ -1,6 +1,5 @@
 import { Knex } from "knex";
 import DatabaseConnection from "./connection";
-import { generateBatch } from "./data-generator";
 import { BrowserWindow } from "electron";
 
 export class DataInserter {   
@@ -31,7 +30,7 @@ export class DataInserter {
       }
     }
   
-    public async insertAll(window: BrowserWindow, generateFakeData: any): Promise<number> {
+    public async insertAll(window: BrowserWindow, userFunctionToGenerateData: any): Promise<number> {
       this.shouldStopProcess = false;
 
       const totalBatches = Math.ceil(this.totalRecords / this.batchSize);
@@ -57,7 +56,7 @@ export class DataInserter {
           }
           
           if (recordsToGenerate > 0) {
-            const users = this.generateBatch(recordsToGenerate, generateFakeData);
+            const users = this.generateBatch(recordsToGenerate, userFunctionToGenerateData);
             batchPromises.push(
               this.insertSingleBatch(users).then(count => {
                 insertedRecords += count;
@@ -78,8 +77,8 @@ export class DataInserter {
       return insertedRecords;
     }
 
-    private generateBatch(size: number, generateFakeUser: any): any[] {
-      return Array.from({ length: size }, generateFakeUser);
+    private generateBatch(size: number, userFunctionToGenerateData: any): any[] {
+      return Array.from({ length: size }, userFunctionToGenerateData);
     }
   
     public async getTotalCount(): Promise<number> {

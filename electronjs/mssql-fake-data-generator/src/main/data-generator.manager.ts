@@ -10,7 +10,7 @@ export class DataGeneratorManager {
     static dbConfig = {};
     static DB: DatabaseConnection;
     static inserter: DataInserter;
-    static generateFakeData: any;
+    static userFunctionToGenerateData: any;
     static sandbox = {
         require: (module: any) => {
           if (module === '@faker-js/faker') return { faker };
@@ -49,13 +49,13 @@ export class DataGeneratorManager {
             script.runInContext(context);
         
             // Verify the function exists
-            this.generateFakeData = this.sandbox.exports.generateFakeData;
-            if (typeof this.generateFakeData !== 'function') {
+            this.userFunctionToGenerateData = this.sandbox.exports.generateFakeData;
+            if (typeof this.userFunctionToGenerateData !== 'function') {
                 window.webContents.send('app:code:result', { error: 'You must export a function named "generateFakeData"' })
             }
 
             // Generate data once and reply
-            const fakeDataArray = Array.from({ length: 1 }, () => this.generateFakeData());
+            const fakeDataArray = Array.from({ length: 1 }, () => this.userFunctionToGenerateData());
             window.webContents.send('app:code:result', fakeDataArray)
         } catch (error: any) {
             window.webContents.send('app:code:result', { error: error.message })
@@ -68,7 +68,7 @@ export class DataGeneratorManager {
         }
         const { totalRecords, batchSize, concurrentBatches, logInterval } = batchConfig;
         this.inserter = new DataInserter(this.DB, totalRecords, batchSize, concurrentBatches, logInterval);
-        await this.inserter.insertAll(window, this.generateFakeData)
+        await this.inserter.insertAll(window, this.userFunctionToGenerateData)
         window.webContents.send('app:progress', { log: `Operation Done`})
         window.webContents.send('app:complete', {})
     }
