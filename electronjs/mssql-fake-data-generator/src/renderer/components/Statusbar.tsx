@@ -1,8 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-
-interface StatusbarProps {
-    status: string
-}
+import { useEffect, useState } from "react";
 
 const StatusBar: React.FC = () => {
 

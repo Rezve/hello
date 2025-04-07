@@ -15,7 +15,7 @@ const GeneratorFunction: React.FC<GeneratorFunctionProps> = ({ isConnected, isCo
   const [isAdvanceCodeLoaded, setAdvanceCodeLoaded] = useState(false);
   const [code, setCode] = useState<string>(BasicCode);
   const [hasCodeChanged, setHasCodeChanged] = useState(false);
-  const [confirmButtonText, setConfirmButtonText] = useState('Confirm Code');
+  const [confirmButtonText, setConfirmButtonText] = useState('Run & Validate');
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const GeneratorFunction: React.FC<GeneratorFunctionProps> = ({ isConnected, isCo
     setCodeConfirmed(true);
     setIsModalOpen(false);
     setSampleData(null);
-    setConfirmButtonText('Function Confirmed')
+    setConfirmButtonText('Confirmed')
     setHasCodeChanged(false);
   }
 
@@ -92,7 +92,7 @@ const GeneratorFunction: React.FC<GeneratorFunctionProps> = ({ isConnected, isCo
               onChange={(value) => { 
                 setCode(value || "")
                 if (isCodeConfirmed && !hasCodeChanged) {
-                  setConfirmButtonText('Apply Updated Code');
+                  setConfirmButtonText('Re-run & Validate');
                   setHasCodeChanged(true);
                 }
               }}
@@ -141,7 +141,7 @@ const GeneratorFunction: React.FC<GeneratorFunctionProps> = ({ isConnected, isCo
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
           <div className="bg-white p-6 rounded-md shadow-lg max-w-lg w-full">
-            <h3 className="text-lg font-semibold mb-4">Preview Generated Data</h3>
+            <h3 className="text-lg font-semibold mb-4">Review Generated Data</h3>
             {sampleData && (
               <table className="w-full border-collapse border border-gray-300">
                 <tbody>
@@ -166,7 +166,7 @@ const GeneratorFunction: React.FC<GeneratorFunctionProps> = ({ isConnected, isCo
               className="mt-4 ml-5 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-gray-600 transition-colors duration-200"
               onClick={handleCodeConfirmation}
             >
-              Confirm Code
+              Confirm
             </button>
           </div>
         </div>
