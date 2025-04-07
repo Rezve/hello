@@ -6,7 +6,7 @@ import { decrypt, encrypt } from "./crypto";
 import { loadConfig, saveConfig } from "./storage";
 
 function registerHandlers(mainWindow: BrowserWindow) {
-  ipcMain.handle('config:db',  async (event, dbConfig) => DataGeneratorManager.setDBConfig(event, dbConfig))
+  ipcMain.handle('config:db',  async (event, dbConfig) => DataGeneratorManager.setDBConfig(mainWindow, event, dbConfig))
 
   ipcMain.handle('storage:retrieve-key', async (event, account) => {
     return await getKey(account);

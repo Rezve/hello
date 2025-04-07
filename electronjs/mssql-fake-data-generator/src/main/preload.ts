@@ -20,9 +20,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
   },
   on: (channel: string, callback: any) => {
     const validChannels = [
+      'app:status',
       'app:progress',
       'app:complete',
-      'app:code:result'
+      'app:code:result',
     ];
     if (validChannels.includes(channel)) {
       ipcRenderer.on(channel, (event, ...args) => callback(...args));
@@ -34,8 +35,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   start: (channel: string, batchConfig: BatchConfig) => ipcRenderer.send(channel, batchConfig),
   stop: (channel: string) => ipcRenderer.send(channel),
   send: (channel: string, data: any) => {
-    console.log("🚀 ~ channel:", channel)
-
     const validChannels = [
       'window:minimize',
       'window:maximize',

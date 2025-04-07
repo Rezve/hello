@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './styles/App.css';
 import HomePage from './pages/HomePage';
 import { NotificationProvider } from './components/notification/NotificationContext';
+import StatusBar from './components/Statusbar';
 
 const App: React.FC = () => {
   return (
@@ -40,10 +41,7 @@ const App: React.FC = () => {
           <HomePage />
         </div>
 
-        {/* Optional Status Bar */}
-        <div className="p-2 bg-gray-200 border-t border-gray-300 text-sm text-gray-600">
-          Status: Ready
-        </div>
+        <StatusBar />
       </div>
     </NotificationProvider>
   );
