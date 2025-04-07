@@ -1,7 +1,6 @@
 import { Knex } from "knex";
 import DatabaseConnection from "./connection";
 import { generateBatch } from "./data-generator";
-import { User } from "./types";
 import { BrowserWindow } from "electron";
 
 export class DataInserter {   
@@ -23,7 +22,7 @@ export class DataInserter {
       this.shouldStopProcess = true;
     }
   
-    private async insertSingleBatch(users: User[]): Promise<number> {
+    private async insertSingleBatch(users: any[]): Promise<number> {
       try {
         await this.db('Users').insert(users);
         return users.length;

@@ -11,9 +11,10 @@ export interface ElectronAPI {
   removeAllListeners: (channel: string) => void;
   start: (channel: string, batchConfig: BatchConfig) => void;
   stop: (channel: string) => void;
-  minimize: () => void;
-  maximize: () => void;
-  close: () => void;
+  send: (channel: string, data?: any) => void;
+  // minimize: () => void;
+  // maximize: () => void;
+  // close: () => void;
 }
 
 export {};

@@ -2,11 +2,22 @@ import { BatchConfig } from "../renderer/components/BatchConfig";
 import DatabaseConnection from "../data-generator/connection";
 import { BrowserWindow } from "electron";
 import { DataInserter } from "../data-generator/inserter";
+import vm from 'vm';
+import { faker } from '@faker-js/faker';
+
 
 export class DataGeneratorManager {
     static dbConfig = {};
     static DB: DatabaseConnection;
     static inserter: DataInserter;
+    static sandbox = {
+        require: (module: any) => {
+          if (module === '@faker-js/faker') return { faker };
+          throw new Error('Only @faker-js/faker is allowed');
+        },
+        module: { exports: {} }, // Mimic CommonJS module
+        exports: {} as any, // Shortcut for module.exports
+    };
 
     static async setDBConfig(event: any, dbConfig: any) {
         try {
@@ -20,8 +31,34 @@ export class DataGeneratorManager {
         }
     }
 
-    public setGeneratorFunction() {
+    static async setGeneratorFunction(window: BrowserWindow, userCode: any) {
+        try {
+            const wrappedCode = `
+            (function (module, exports, require) {
+                ${userCode}
+                if (typeof generateFakeData === 'function') {
+                exports.generateFakeData = generateFakeData;
+                }
+            })(module, exports, require);
+            `;
 
+            // Run the user code once
+            const script = new vm.Script(wrappedCode);
+            const context = vm.createContext(this.sandbox);
+            script.runInContext(context);
+        
+            // Verify the function exists
+            const generateFakeData = this.sandbox.exports.generateFakeData;
+            if (typeof generateFakeData !== 'function') {
+                window.webContents.send('app:code:result', { error: 'You must export a function named "generateFakeData"' })
+            }
+        
+            // Generate data once and reply
+            const fakeDataArray = Array.from({ length: 1 }, () => generateFakeData());
+            window.webContents.send('app:code:result', fakeDataArray)
+          } catch (error: any) {
+            window.webContents.send('app:code:result', { error: error.message })
+          }
     }
 
     static async start(window: BrowserWindow, batchConfig: BatchConfig) {

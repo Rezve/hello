@@ -1,11 +1,10 @@
 import { faker } from '@faker-js/faker';
-import { User } from './types';
 
 // Pre-generate dates for performance
 const pastDates = Array.from({ length: 1000 }, () => faker.date.past());
 const recentDates = Array.from({ length: 1000 }, () => faker.date.recent());
 
-export function generateFakeUser(): User {
+export function generateFakeUser(): any {
   return {
     Name: faker.person.fullName(),
     Email: faker.internet.email().toLowerCase(),
@@ -16,7 +15,7 @@ export function generateFakeUser(): User {
   };
 }
 
-export function generateBatch(size: number): User[] {
+export function generateBatch(size: number): any[] {
   return Array.from({ length: size }, generateFakeUser);
 }
 
