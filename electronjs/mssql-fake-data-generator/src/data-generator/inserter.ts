@@ -31,7 +31,7 @@ export class DataInserter {
       }
     }
   
-    public async insertAll(window: BrowserWindow): Promise<number> {
+    public async insertAll(window: BrowserWindow, generateFakeData: any): Promise<number> {
       this.shouldStopProcess = false;
 
       const totalBatches = Math.ceil(this.totalRecords / this.batchSize);
@@ -57,7 +57,7 @@ export class DataInserter {
           }
           
           if (recordsToGenerate > 0) {
-            const users = generateBatch(recordsToGenerate);
+            const users = this.generateBatch(recordsToGenerate, generateFakeData);
             batchPromises.push(
               this.insertSingleBatch(users).then(count => {
                 insertedRecords += count;
@@ -76,6 +76,10 @@ export class DataInserter {
       }
   
       return insertedRecords;
+    }
+
+    private generateBatch(size: number, generateFakeUser: any): any[] {
+      return Array.from({ length: size }, generateFakeUser);
     }
   
     public async getTotalCount(): Promise<number> {

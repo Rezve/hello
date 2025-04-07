@@ -10,6 +10,7 @@ export class DataGeneratorManager {
     static dbConfig = {};
     static DB: DatabaseConnection;
     static inserter: DataInserter;
+    static generateFakeData: any;
     static sandbox = {
         require: (module: any) => {
           if (module === '@faker-js/faker') return { faker };
@@ -48,29 +49,32 @@ export class DataGeneratorManager {
             script.runInContext(context);
         
             // Verify the function exists
-            const generateFakeData = this.sandbox.exports.generateFakeData;
-            if (typeof generateFakeData !== 'function') {
+            this.generateFakeData = this.sandbox.exports.generateFakeData;
+            if (typeof this.generateFakeData !== 'function') {
                 window.webContents.send('app:code:result', { error: 'You must export a function named "generateFakeData"' })
             }
-        
+
             // Generate data once and reply
-            const fakeDataArray = Array.from({ length: 1 }, () => generateFakeData());
+            const fakeDataArray = Array.from({ length: 1 }, () => this.generateFakeData());
             window.webContents.send('app:code:result', fakeDataArray)
-          } catch (error: any) {
+        } catch (error: any) {
             window.webContents.send('app:code:result', { error: error.message })
-          }
+        }
     }
 
     static async start(window: BrowserWindow, batchConfig: BatchConfig) {
+        if (!this.DB) {
+            return;
+        }
         const { totalRecords, batchSize, concurrentBatches, logInterval } = batchConfig;
         this.inserter = new DataInserter(this.DB, totalRecords, batchSize, concurrentBatches, logInterval);
-        await this.inserter.insertAll(window)
-        window.webContents.send('app:progress', { log: `Total ${totalRecords} Rows Insertion Complete`})
+        await this.inserter.insertAll(window, this.generateFakeData)
+        window.webContents.send('app:progress', { log: `Operation Done`})
         window.webContents.send('app:complete', {})
     }
 
     static stop(window: BrowserWindow) {
-        this.inserter.stop();
+        this.inserter?.stop();
         window.webContents.send('app:progress', { log: 'Operation stopped by user'})
     }
 
