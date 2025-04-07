@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FeedMyDB</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --bg: #f9fafb;
+      --text: #1f2937;
+      --accent: #10b981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #6b7280;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4338ca;
+    }
+
+    .section {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .feature {
+      flex: 1 1 250px;
+      background: white;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature h3 {
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .features {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Feed My DB</h1>
+    <p>Your database is starving. Feed it fake data. Fast.</p>
+    <a class="btn" href="#">Try it Now 🍽️</a>
+  </header>
+
+  <section class="section">
+    <h2>What makes it tasty?</h2>
+    <div class="features">
+      <!-- <div class="feature">
+        <h3>🥗 All-You-Can-Seed</h3>
+        <p>Connect to MongoDB, PostgreSQL, MySQL, SQLite — and pile on fake data.</p>
+      </div> -->
+      <!-- <div class="feature">
+        <h3>⚡ Instant Gratification</h3>
+        <p>Preview and inject data in seconds. No boilerplate, no boredom.</p>
+      </div> -->
+      <div class="feature">
+        <h3>🔥 Stress Before Prod</h3>
+        <p>Performance often degrades with large data. Seed your DB locally, simulate scale, and <u>avoid on-call surprises.</u></p>
+      </div>
+      <div class="feature">
+        <h3>🛡️ Be Battle Ready</h3>
+        <p>Test your app with production-like data volumes. Be confident. Be prepared. <u>Be the dev who saw it coming.</u></p>
+      </div>
+      <div class="feature">
+        <h3>🎯 Query Sharpening</h3>
+        <p>Run heavy queries and spot bottlenecks before they become <u>Slack alerts at midnight.</u></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Open Source FTW</h2>
+    <p>MIT Licensed. Fork it, star it, or break it – we won’t judge.</p>
+    <p>If you like it, <strong>give us a star on GitHub</strong> ⭐ — it helps more devs find us and keeps the caffeine fund going!</p>
+    <p>Found a bug or want a new feature? <strong>Report an issue</strong> </p>
+    <p style="margin-top: 1rem;">
+      <a class="btn" href="#">View on GitHub ⭐</a>
+    </p>
+  </section>
+
+  <footer class="footer">
+    <p>Built by devs, for devs. Fueled by caffeine and `INSERT INTO` statements.</p>
+    <p>© 2025 FeedMyDB</p>
+  </footer>
+</body>
+</html>
