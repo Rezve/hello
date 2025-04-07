@@ -2,13 +2,21 @@ import { useEffect, useState } from "react";
 import MonacoEditor from '@monaco-editor/react';
 import { AdvancedCode, BasicCode } from "../utils/sample-code";
 
-const GeneratorFunction: React.FC = () => {
+interface GeneratorFunctionProps {
+  isConnected: boolean;
+  isCodeConfirmed: boolean;
+  setCodeConfirmed: (flag: boolean) => void;
+}
+
+const GeneratorFunction: React.FC<GeneratorFunctionProps> = ({ isConnected, isCodeConfirmed, setCodeConfirmed }) => {
   const [isEditorOpen, setIsEditorOpen] = useState(true);
   const [sampleData, setSampleData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAdvanceCodeLoaded, setAdvanceCodeLoaded] = useState(false);
-  const [error, setError] = useState(null);
   const [code, setCode] = useState<string>(BasicCode);
+  const [hasCodeChanged, setHasCodeChanged] = useState(false);
+  const [confirmButtonText, setConfirmButtonText] = useState('Confirm Code');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.electronAPI.on("app:code:result", (result) => {
@@ -32,6 +40,14 @@ const GeneratorFunction: React.FC = () => {
     setAdvanceCodeLoaded(!isAdvanceCodeLoaded)
   }
 
+  const handleCodeConfirmation = () => {
+    setCodeConfirmed(true);
+    setIsModalOpen(false);
+    setSampleData(null);
+    setConfirmButtonText('Function Confirmed')
+    setHasCodeChanged(false);
+  }
+
   const closeModal = () => {
     setIsModalOpen(false);
     setSampleData(null);
@@ -41,8 +57,19 @@ const GeneratorFunction: React.FC = () => {
     <div
       className={`editor-section ${
         isEditorOpen ? "open" : "closed"
-      } bg-white border border-gray-300 rounded-md shadow-sm`}
+      } bg-white border border-gray-300 rounded-md shadow-sm relative`}
     >
+      {/* Overlay if not connected */}
+      {!isConnected && (
+        <div className="absolute inset-0 bg-gray-200 bg-opacity-75 flex items-center justify-center z-10">
+        <div className="bg-white px-4 py-2 rounded-md shadow-sm border border-gray-300">
+          <p className="text-gray-600 text-sm font-medium">
+            Please connect to the database first.
+          </p>
+        </div>
+      </div>
+      )}
+
       {/* Section Header */}
       <div className="section-header flex items-center justify-between p-2 bg-gray-200 border-b border-gray-300">
         <h2 className="text-sm font-semibold text-gray-800">Generator Function</h2>
@@ -62,7 +89,13 @@ const GeneratorFunction: React.FC = () => {
               height="52vh"
               defaultLanguage="javascript"
               value={code}
-              onChange={(value) => setCode(value || "")}
+              onChange={(value) => { 
+                setCode(value || "")
+                if (isCodeConfirmed && !hasCodeChanged) {
+                  setConfirmButtonText('Apply Updated Code');
+                  setHasCodeChanged(true);
+                }
+              }}
               options={{
                 minimap: { enabled: false },
                 scrollBeyondLastLine: false,
@@ -79,10 +112,11 @@ const GeneratorFunction: React.FC = () => {
           <div className="flex items-center justify-between">
             {/* Run/Validate Button */}
             <button
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className={`px-4 py-2 bg-blue-600 text-white rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                ${isCodeConfirmed && !hasCodeChanged ? 'bg-gray-600 hover:bg-gray-700': 'bg-blue-600 hover:bg-blue-700'}`}
               onClick={handleRunCode}
             >
-              Test Code
+              {confirmButtonText}
             </button>
 
             {/* Load Advanced Example Button */}
@@ -105,7 +139,7 @@ const GeneratorFunction: React.FC = () => {
 
       {/* Modal for Sample Data */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20">
           <div className="bg-white p-6 rounded-md shadow-lg max-w-lg w-full">
             <h3 className="text-lg font-semibold mb-4">Preview Generated Data</h3>
             {sampleData && (
@@ -127,6 +161,12 @@ const GeneratorFunction: React.FC = () => {
               onClick={closeModal}
             >
               Close
+            </button>
+            <button
+              className="mt-4 ml-5 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-gray-600 transition-colors duration-200"
+              onClick={handleCodeConfirmation}
+            >
+              Confirm Code
             </button>
           </div>
         </div>

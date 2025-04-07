@@ -1,5 +1,4 @@
-export const BasicCode = `
-// Welcome to the Generator Function Editor!
+export const BasicCode = `// Welcome to the Generator Function Editor!
 // This is your space to create custom fake data for your application.
 // You can access the \`@faker-js/faker\` library with \`require('@faker-js/faker')\`.
 
@@ -13,10 +12,9 @@ function generateFakeData() {
   };
 }
 
-// Tip: Click "Test Code" to test your code!
+// Tip: Click "Confirm Code" to test and confirm your code!
 `
-export const AdvancedCode = `
-// Welcome to the Generator Function Editor!
+export const AdvancedCode = `// Welcome to the Generator Function Editor!
 // This is your space to create custom fake data for your application.
 
 // **File Scope**: 
@@ -64,7 +62,7 @@ function generateFakeData() {
     Status: getRandomStatus(),
 
     // Go wild! Add more fields like these:
-    Username: faker.internet.userName(),
+    Username: faker.internet.username(),
     Bio: faker.lorem.sentence(),
     Balance: faker.finance.amount(0, 10000, 2, '$'),
     Avatar: faker.image.avatar(),
@@ -75,5 +73,5 @@ function generateFakeData() {
 // **Tips**:
 // - Check out Faker’s API for more options (e.g., faker.person, faker.internet, faker.date).
 // - Keep 'generateFakeData' fast since it runs for each item in the output array.
-// - Test your code with the "Test Code" button to see a sample!
+// - Test your code with the "Confirm Code" button to see a sample!
 `

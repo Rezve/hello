@@ -4,10 +4,14 @@ import BatchConfig from '../components/BatchConfig';
 import DBConfig from '../components/DBConfig';
 import LiveLog from '../components/LiveLog';
 import { Resizable } from 'react-resizable';
+import { BasicCode } from '../utils/sample-code';
 
 const HomePage: React.FC = () => {
 
-  const [logHeight, setLogHeight] = useState(5000);
+  const [isConnected, setIsConnected] = useState(false);
+  const [isCodeConfirmed, setCodeConfirmed] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
+  const [logHeight, setLogHeight] = useState(200);
 
   const debounce = (fn: any, ms: any) => {
     let timeout: any;
@@ -25,14 +29,23 @@ const HomePage: React.FC = () => {
     <div className="flex h-full">
       {/* Left Sidebar */}
       <div className="w-80 flex flex-col bg-gray-100 border-r border-gray-300 p-4 space-y-4 overflow-y-auto">
-        <DBConfig />
-        <BatchConfig />
+        <DBConfig 
+          isConnected={isConnected}
+          setIsConnected={setIsConnected}
+        />
+        <BatchConfig isConnected={isConnected}
+        isRunning={isRunning}
+        isCodeConfirmed={isCodeConfirmed}
+        setIsRunning={setIsRunning} />
       </div>
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col">
         <div className="flex-1 p-4">
-          <GeneratorFunction />
+          <GeneratorFunction 
+          isConnected={isConnected}
+          isCodeConfirmed={isCodeConfirmed}
+          setCodeConfirmed={setCodeConfirmed} />
         </div>
 
         {/* Bottom Docked Logs */}

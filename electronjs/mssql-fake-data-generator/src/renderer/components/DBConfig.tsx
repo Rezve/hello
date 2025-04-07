@@ -12,9 +12,13 @@ interface DBConfig {
   trustServerCertificate: boolean;
 }
 
-const DBConfig: React.FC = () => {
+interface DBConfigProps {
+  isConnected: boolean;
+  setIsConnected: (flag: boolean) => void;
+}
+
+const DBConfig: React.FC<DBConfigProps> = ({ isConnected, setIsConnected }: any) => {
   const [isDbConfigOpen, setIsDbConfigOpen] = useState(true);
-  const [isConnected, setIsConnected] = useState(false);
   const { addNotification } = useNotification();
 
   // Database configuration state
@@ -69,6 +73,7 @@ const DBConfig: React.FC = () => {
         addNotification('Collection Established Successfully', 'success')
         setIsDbConfigOpen(false);
         await saveConfig(dbConfig);
+        setIsConnected(true);
         return;
       }
       addNotification(`Error: ${response.message}`, 'error')

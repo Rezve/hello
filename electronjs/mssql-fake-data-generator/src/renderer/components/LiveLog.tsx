@@ -6,6 +6,7 @@ interface LogEntry {
     message: string;
   }
 
+
 const LiveLog: React.FC = () => {
 
     const [isLogsOpen, setIsLogsOpen] = useState(true);

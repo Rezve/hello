@@ -14,14 +14,20 @@ export interface BatchConfig {
   logInterval: number;
 }
 
-const BatchConfig: React.FC = () => {
+interface BatchConfigProps {
+  isConnected: boolean;
+  isRunning: boolean;
+  isCodeConfirmed: boolean;
+  setIsRunning: (flag: boolean) => void;
+}
+
+const BatchConfig: React.FC<BatchConfigProps> = ({ isConnected, isRunning, isCodeConfirmed, setIsRunning }) => {
 
     const [isConfigOpen, setIsConfigOpen] = useState(true);
     const [totalRecords, setTotalRecords] = useState<number>(1000);
     const [batchSize, setBatchSize] = useState<number>(100);
     const [concurrentBatches, setConcurrentBatches] = useState<number>(2);
     const [logInterval, setLogInterval] = useState<number>(1000);
-    const [isRunning, setIsRunning] = useState<boolean>(false);
 
     const handleStart = async () => {      
       const batchConfig: BatchConfig = {
@@ -51,8 +57,21 @@ const BatchConfig: React.FC = () => {
         <div
           className={`config-section ${
             isConfigOpen ? "open" : "closed"
-          } bg-white border border-gray-300 rounded-md shadow-sm`}
+          } bg-white border border-gray-300 rounded-md shadow-sm relative`}
         >
+
+          {/* Overlay if not ready */}
+          {!isCodeConfirmed && (
+            <div className="absolute inset-0 bg-gray-200 bg-opacity-75 flex items-center justify-center z-10">
+              <div className="bg-white px-4 py-2 rounded-md shadow-sm border border-gray-300">
+                <p className="text-gray-600 text-sm font-medium">
+                  {!isConnected
+                    ? "Please connect to the database."
+                    : "Please confirm a generator function."}
+                </p>
+              </div>
+          </div>
+          )}
           {/* Section Header */}
           <div className="section-header flex items-center justify-between p-2 bg-gray-200 border-b border-gray-300">
             <h2 className="text-sm font-semibold text-gray-800">Batch Configuration</h2>
