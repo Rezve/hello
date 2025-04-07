@@ -35,6 +35,7 @@ export class IPCService {
     }
 
     static async loadConfig() {
+      // TODO: combine all IPC call into one
       const config = await window.electronAPI.invoke('storage:loadConfig', '') as any
 
       if (config?.encryptedPassword) {

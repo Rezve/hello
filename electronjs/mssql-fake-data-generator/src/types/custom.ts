@@ -11,11 +11,21 @@ export interface ElectronAPI {
   removeAllListeners: (channel: string) => void;
   start: (channel: string, batchConfig: BatchConfig) => void;
   stop: (channel: string) => void;
+  minimize: () => void;
+  maximize: () => void;
+  close: () => void;
 }
 
 export {};
 declare global {
   interface Window {
     electronAPI: ElectronAPI;
+  }
+}
+import 'react';
+
+declare module 'react' {
+  interface CSSProperties {
+    webkitAppRegion?: 'drag' | 'no-drag';
   }
 }

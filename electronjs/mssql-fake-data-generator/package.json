@@ -16,6 +16,7 @@
     "@types/node": "^22.13.17",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
+    "@types/react-resizable": "^3.0.8",
     "autoprefixer": "^10.4.21",
     "css-loader": "^7.1.2",
     "electron": "^35.1.2",
@@ -36,6 +37,7 @@
     "knex": "^3.1.0",
     "mssql": "^11.0.1",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-resizable": "^3.0.5"
   }
 }

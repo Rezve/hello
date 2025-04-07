@@ -32,4 +32,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   },
   start: (channel: string, batchConfig: BatchConfig) => ipcRenderer.send(channel, batchConfig),
   stop: (channel: string) => ipcRenderer.send(channel),
+  minimize: () => ipcRenderer.send('minimize-window'),
+  maximize: () => ipcRenderer.send('maximize-window'),
+  close: () => ipcRenderer.send('close-window'),
 });

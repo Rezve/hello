@@ -3,7 +3,6 @@ import DatabaseConnection from "../data-generator/connection";
 import { BrowserWindow } from "electron";
 import { DataInserter } from "../data-generator/inserter";
 
-
 export class DataGeneratorManager {
     static dbConfig = {};
     static DB: DatabaseConnection;
@@ -23,10 +22,6 @@ export class DataGeneratorManager {
 
     public setGeneratorFunction() {
 
-    }
-
-    public setBatchConfig() {
-        
     }
 
     static async start(window: BrowserWindow, batchConfig: BatchConfig) {

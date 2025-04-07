@@ -35,6 +35,10 @@ function registerHandlers(mainWindow: BrowserWindow) {
   ipcMain.on('app:stop', (event) => {
     DataGeneratorManager.stop(mainWindow);
   })
+
+  ipcMain.on('minimize-window', () => mainWindow.minimize());
+  ipcMain.on('maximize-window', () => (mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize()));
+  ipcMain.on('close-window', () => mainWindow.close());
 }
 
 export { registerHandlers }
